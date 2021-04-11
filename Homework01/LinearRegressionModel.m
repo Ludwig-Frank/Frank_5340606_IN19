@@ -73,10 +73,10 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
         
         function h = showCostFunctionArea(obj)
             h = figure('Name','Cost Function Area');
-            theta0_vals = linspace(50, 150, 100);
+            theta0_vals = linspace(50, 150, 100); 
             theta1_vals = linspace(0, 2, 100);
             costMat = ones(100,100);
-            for k= 1:100
+            for k= 1:100 % hard coded limits 
                 for l = 1:100
                     obj.setTheta(theta0_vals(l),theta1_vals(k));
                     costMat(k,l)=obj.costFunction();
@@ -88,6 +88,7 @@ classdef LinearRegressionModel < matlab.mixin.SetGet
             % plot the costs with the surf command
             % add x and y label
             
+            % label??!
         end
         
         function h = showTrainingData(obj)

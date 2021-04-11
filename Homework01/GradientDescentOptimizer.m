@@ -34,10 +34,7 @@ classdef GradientDescentOptimizer < matlab.mixin.SetGet
             %   compute current costs and save them to costOverIters
             % end
             for k = 1:maxIters
-                hypothesis = X * theta;
-                theta(1)= theta(1)- alpha * sum(hypothesis-y) * (1/m);
-                theta(2)= theta(2)-alpha * sum((hypothesis-y) .* X(:,2))*(1/m);
-                
+                theta = theta - (alpha/m)*(X'*(linearRegressionModel.hypothesis()-y));
                 linearRegressionModel.setTheta(theta(1),theta(2))
                 costOverIters(k)=linearRegressionModel.costFunction();
             end
