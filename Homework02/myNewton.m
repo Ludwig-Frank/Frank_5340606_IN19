@@ -1,5 +1,5 @@
 function [xZero, abortFlag, iters] = myNewton(varargin)
-derivative =1;
+% description?
 for i=1:nargin
    if strcmp(varargin{i},'function')
        func = varargin{i+1};
