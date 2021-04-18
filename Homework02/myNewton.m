@@ -21,8 +21,8 @@ end
 if ~exist('func','var')
     error('No valid function');
 elseif ~exist('dfunc','var')
-    derivative = 0;
-    method = questdlg('Which Method of differtentiation is your desire?','Differentiation type','Forward','Backward','Zentral','Zentral');
+    method = questdlg('Which Method of differtentiation is your desire?',...
+        'Differentiation type','Forward','Backward','Zentral','Zentral');
 end
 if ~exist('x0','var')
     x0 = 0 ;
@@ -74,9 +74,9 @@ for i=1:maxIter
         abortFlag = 'feps';
         break;
     end
-    if derivative == 0
+    if ~exist('dfunc','var') % dont use extra flag: this is more meaningful
         df = numDiff(func,xOld,method);
-    elseif derivative ==1
+    else 
         df= dfunc(xOld);
     end
     if df == 0
